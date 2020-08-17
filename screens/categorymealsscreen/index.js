@@ -14,6 +14,12 @@ const CategoryMealsScreen = (props) => {
           });
         }}
       />
+      <Button
+        title="Go Back"
+        onPress={() => {
+          props.navigation.pop();
+        }}
+      />
     </View>
   );
 };
