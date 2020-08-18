@@ -30,6 +30,10 @@ FiltersScreen.navigateOptions = (navData) => {
   };
 };
 
+// FiltersScreen.navigateOption = {
+//   headerTitle: "Filter Meals",
+// };
+
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
