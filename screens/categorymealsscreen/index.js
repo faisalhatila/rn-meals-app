@@ -9,12 +9,18 @@ import {
 } from "react-native";
 import Colors from "../../constants/Colors";
 import { CATEGORIES, MEALS } from "../../data/dummy-data";
+import { MealItem } from "../../components";
 const CategoryMealsScreen = (props) => {
   const renderMealItem = (itemData) => {
     return (
-      <View>
-        <Text>{itemData.item.title}</Text>
-      </View>
+      <MealItem
+        title={itemData.item.title}
+        onSelectMeal={() => {}}
+        duration={itemData.item.duration}
+        complexity={itemData.item.complexity}
+        affordability={itemData.item.affordability}
+        image={itemData.item.imageUrl}
+      />
     );
   };
   const catId = props.navigation.getParam("categoryId");
@@ -24,11 +30,12 @@ const CategoryMealsScreen = (props) => {
   // const selectedCategory = CATEGORIES.find((cat) => cat.id === catId);
 
   return (
-    <View>
+    <View style={styles.screen}>
       <FlatList
         data={displayedMeals}
         keyExtractor={(item, index) => item.id}
         renderItem={renderMealItem}
+        style={{ width: "100%" }}
       />
     </View>
   );
@@ -50,6 +57,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+    margin: 10,
   },
 });
 
