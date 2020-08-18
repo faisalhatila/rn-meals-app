@@ -9,7 +9,9 @@ const FiltersScreen = (props) => {
     </View>
   );
 };
-
+FiltersScreen.navigateOptions = {
+  headerTitle: "Filter Meal",
+};
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
