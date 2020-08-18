@@ -14,7 +14,7 @@ class Meal {
     isVegetarian,
     isLactoseFree
   ) {
-    this.is = id;
+    this.id = id;
     this.categoryIds = categoryIds;
     this.title = title;
     this.affordability = affordability;
