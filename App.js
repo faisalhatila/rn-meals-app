@@ -18,7 +18,10 @@ const App = () => {
 
   if (!fontLoaded) {
     return (
-      <AppLoading startAsync={fetchFonts} onFinish={setFontLoaded(true)} />
+      <AppLoading
+        startAsync={fetchFonts}
+        onFinish={() => setFontLoaded(true)}
+      />
     );
   }
   return <MealsNavigator />;
