@@ -1,7 +1,7 @@
 import React from "react";
 import Colors from "../../constants/Colors";
 import { CATEGORIES, MEALS } from "../../data/dummy-data";
-import { MealList } from "../../components";
+import MealList from "../../components/meallist";
 
 const CategoryMealsScreen = (props) => {
   const catId = props.navigation.getParam("categoryId");
