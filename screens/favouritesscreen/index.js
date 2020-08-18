@@ -10,6 +10,10 @@ const FavouritesScreen = (props) => {
   );
 };
 
+FavouritesScreen.navigationOptions = {
+  headerTitle: "Your Favourites",
+};
+
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
