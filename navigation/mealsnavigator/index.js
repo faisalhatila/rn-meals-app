@@ -10,9 +10,10 @@ import {
   CategoryMealsScreen,
   MealDetailScreen,
   FavouritesScreen,
+  FiltersScreen,
 } from "../../screens/index";
 import { createMaterialBottomTabNavigator } from "react-navigation-material-bottom-tabs";
-
+import { createDrawerNavigator } from "react-navigation-drawer";
 const defaultStackNavOptions = {
   headerStyle: {
     backgroundColor: Platform.OS === "android" ? Colors.primaryColor : "",
@@ -82,5 +83,13 @@ const MealsFavTabNavigator =
           activeTintColor: Colors.accentColor,
         },
       });
+const FiltersNavigator = createStackNavigator({
+  Filters: FiltersScreen,
+});
 
-export default createAppContainer(MealsFavTabNavigator);
+const MainNavigator = createDrawerNavigator({
+  MealsFavs: MealsFavTabNavigator,
+  Filters: FiltersNavigator,
+});
+
+export default createAppContainer(MainNavigator);
