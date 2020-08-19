@@ -11,7 +11,7 @@ const FiltersScreen = (props) => {
     </View>
   );
 };
-FiltersScreen.navigateOptions = (navData) => {
+FiltersScreen.navigationOptions = (navigationData) => {
   return {
     headerTitle: "Filter Meal",
     headerLeft: () => {
@@ -21,7 +21,7 @@ FiltersScreen.navigateOptions = (navData) => {
             title="Menu"
             iconName="ios-menu"
             onPress={() => {
-              navData.navigation.toggleDrawer();
+              navigationData.navigation.toggleDrawer();
             }}
           />
         </HeaderButtons>
@@ -29,10 +29,6 @@ FiltersScreen.navigateOptions = (navData) => {
     },
   };
 };
-
-// FiltersScreen.navigateOption = {
-//   headerTitle: "Filter Meals",
-// };
 
 const styles = StyleSheet.create({
   screen: {
