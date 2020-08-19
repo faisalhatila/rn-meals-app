@@ -7,7 +7,7 @@ const DefaultText = (props) => {
 
 const styles = StyleSheet.create({
   text: {
-    fontFamily: "open-sane",
+    fontFamily: "open-sans",
   },
 });
 
