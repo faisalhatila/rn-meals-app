@@ -5,7 +5,7 @@ import { AppLoading } from "expo";
 import { MealsNavigator } from "./navigation";
 import { enableScreens } from "react-native-screens";
 import { createStore, combineReducers } from "redux";
-import mealsReducer from "./store/actions/reducers/meals";
+import mealsReducer from "./store/reducer/meals";
 import { Provider } from "react-redux";
 
 const fetchFonts = () => {
