@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
   ImageBackground,
 } from "react-native";
-import { DefaultText } from "..";
+import DefaultText from "../defaulttext";
 
 const MealItem = (props) => {
   return (
