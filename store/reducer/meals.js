@@ -1,26 +1,26 @@
 import { TOGGLE_FAVOURITE } from "../actions/meals";
-
-const { MEALS } = require("../../../data/dummy-data");
+import { MEALS } from "../../data/dummy-data";
+// const { MEALS } = require("../../../data/dummy-data");
 
 const initialState = {
   meals: MEALS,
   filteredMealsL: MEALS,
-  favourtieMeals: [],
+  favouriteMeals: [],
 };
 
 const mealsReducer = (state = initialState, action) => {
   switch (action.type) {
     case TOGGLE_FAVOURITE:
-      const existingIndex = state.favourtieMeals.findIndex(
+      const existingIndex = state.favouriteMeals.findIndex(
         (meal) => meal.id === action.mealId
       );
       if (existingIndex >= 0) {
-        const updatedFavMeals = [...state.favourtieMeals];
+        const updatedFavMeals = [...state.favouriteMeals];
         updatedFavMeals.splice(existingIndex, 1);
-        return { ...state, favourtieMeals: updatedFavMeals };
+        return { ...state, favouriteMeals: updatedFavMeals };
       } else {
         const meal = state.meals.find((meal) => meal.id === action.mealId);
-        return { ...state, favourtieMeals: state.favourtieMeals.concat(meal) };
+        return { ...state, favouriteMeals: state.favouriteMeals.concat(meal) };
       }
     default:
       return state;
