@@ -83,9 +83,14 @@ const MealsFavTabNavigator =
           activeTintColor: Colors.accentColor,
         },
       });
-const FiltersNavigator = createStackNavigator({
-  Filters: FiltersScreen,
-});
+const FiltersNavigator = createStackNavigator(
+  {
+    Filters: FiltersScreen,
+  },
+  {
+    defaultNavigationOptions: defaultStackNavOptions,
+  }
+);
 
 const MainNavigator = createDrawerNavigator({
   MealsFavs: MealsFavTabNavigator,
