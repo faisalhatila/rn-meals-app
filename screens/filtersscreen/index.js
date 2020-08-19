@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { HeaderButtons, Item } from "react-navigation-header-buttons";
 import { HeaderButton } from "../../components";
 
@@ -11,7 +11,7 @@ const FilterSwitch = (props) => {
       <Text>{props.label}</Text>
       <Switch
         trackColor={{ true: Colors.primaryColor }}
-        // thumbColor={Colors.primaryColor}
+        thumbColor={Colors.primaryColor}
         value={props.state}
         onValueChange={props.onChange}
       />
@@ -20,10 +20,25 @@ const FilterSwitch = (props) => {
 };
 
 const FiltersScreen = (props) => {
+  const { navigation } = props;
   const [isGlutenFree, setIsGlutenFree] = useState(false);
   const [isLactoseFree, setIsLactoseFree] = useState(false);
   const [isVegan, setIsVegan] = useState(false);
   const [isVegeterian, setIsVegeterian] = useState(false);
+  const saveFilters = useCallback(() => {
+    const appliedFilters = {
+      gluternFree: isGlutenFree,
+      lactoseFree: isLactoseFree,
+      vegan: isVegan,
+      isVegeterian: isVegeterian,
+    };
+    console.log(appliedFilters);
+  }, [isGlutenFree, isLactoseFree, isVegan, isVegeterian]);
+  useEffect(() => {
+    navigation.setParams({
+      save: saveFilters,
+    });
+  }, [saveFilters]);
   return (
     <View style={styles.screen}>
       <Text style={styles.title}>Available Filters / Restrictions</Text>
@@ -62,6 +77,17 @@ FiltersScreen.navigationOptions = (navigationData) => {
             onPress={() => {
               navigationData.navigation.toggleDrawer();
             }}
+          />
+        </HeaderButtons>
+      );
+    },
+    headerRight: () => {
+      return (
+        <HeaderButtons HeaderButtonComponent={HeaderButton}>
+          <Item
+            title="Save"
+            iconName="ios-save"
+            onPress={navigationData.navigation.getParam("save")}
           />
         </HeaderButtons>
       );
