@@ -7,7 +7,7 @@ import { HeaderButton } from "../../components";
 const MealDetailScreen = (props) => {
   const mealId = props.navigation.getParam("mealId");
   const selectedMeal = MEALS.find((meal) => meal.id === mealId);
-  console.log(props);
+  // console.log(props);
   return (
     <View>
       <Text>{selectedMeal.title}</Text>
