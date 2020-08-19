@@ -17,11 +17,11 @@ const MealDetailScreen = (props) => {
   const availableMeals = useSelector((state) => state.meals.meals);
   const mealId = props.navigation.getParam("mealId");
   const selectedMeal = availableMeals.find((meal) => meal.id === mealId);
-  useEffect(() => {
-    props.navigation.setParams({
-      mealTitle: selectedMeal.title,
-    });
-  }, [selectedMeal]);
+  // useEffect(() => {
+  //   props.navigation.setParams({
+  //     mealTitle: selectedMeal.title,
+  //   });
+  // }, [selectedMeal]);
   return (
     <ScrollView>
       <Image source={{ uri: selectedMeal.imageUrl }} style={styles.image} />
